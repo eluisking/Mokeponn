@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Juego Luis</title>
+    </head>
+    <body>
+        <h1 class="title">Mokepon! 🔥💧🌱</h1>
+
+        <section id="select-mascota">
+            <h2>Elije una mascota</h2>
+
+            <label for="hipodoge">Hipodoge</label>
+            <input type="radio" name="mascotas" id="hipodoge">
+            
+            <label for="capipepo">Capipepo</label>
+            <input type="radio" name="mascotas" id="capipepo">
+            
+            <label for="ratiguella">Ratiguella</label>
+            <input type="radio" name="mascotas" id="ratiguella">
+            
+            <!-- <label for="langostini">Langostini -> Agua💧 y Fuego🔥</label>
+            <input type="radio" name="mascotas" id="langostini">
+            
+            <label for="tucapalma">Tucapalma -> Agua💧y Tierra🌱</label>
+            <input type="radio" name="mascotas" id="tucapalma">
+            
+            <label for="pydos">Pydos -> Tierra🌱 y Fuego🔥</label>
+            <input type="radio" name="mascotas" id="pydos"> -->
+
+            <button id="btn-mascota">seleccionar</button>
+            
+
+        </section>
+        
+
+        <section id="select-ataque">
+            <h2>Elije un ataque</h2>
+            
+            <p>Tu mascota <span id="mascota-jug"></span> tiene <span id="vida-jug">3</span> vidas</p>
+            <p>La mascota <span id="mascota-enemi"></span> del enemigo tiene <span id="vida-enemi">3</span> vidas</p>
+
+            <p>
+                <button id="btn-fuego">Fuego🔥</button>
+                <button id="btn-agua">Agua💧</button>
+                <button id="btn-tierra">Tierra🌱</button>
+            </p>
+        </section>
+
+        <section id="mensajes">
+            <!-- <p>Tu mascota ataco con Fuego</p> -->
+        </section>
+
+        <section id="sec-reset">
+            <button id="btn-reset">Reiniciar Jugeos🔄</button>
+        </section>
+    
+
+        <script src="app.js"></script>
+    </body>
+</html>
