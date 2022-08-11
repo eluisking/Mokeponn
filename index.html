@@ -5,32 +5,37 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
         <title>Juego Luis</title>
     </head>
     <body>
-        <h1 class="title">Mokepon! 🔥💧🌱</h1>
-
         <section id="select-mascota">
-            <h2>Elije una mascota</h2>
+            <h1 class="title">¡Mokepon!</h1>
 
-            <label for="hipodoge">Hipodoge</label>
-            <input type="radio" name="mascotas" id="hipodoge">
-            
-            <label for="capipepo">Capipepo</label>
-            <input type="radio" name="mascotas" id="capipepo">
-            
-            <label for="ratiguella">Ratiguella</label>
-            <input type="radio" name="mascotas" id="ratiguella">
-            
-            <!-- <label for="langostini">Langostini -> Agua💧 y Fuego🔥</label>
-            <input type="radio" name="mascotas" id="langostini">
-            
-            <label for="tucapalma">Tucapalma -> Agua💧y Tierra🌱</label>
-            <input type="radio" name="mascotas" id="tucapalma">
-            
-            <label for="pydos">Pydos -> Tierra🌱 y Fuego🔥</label>
-            <input type="radio" name="mascotas" id="pydos"> -->
+            <h2 class="sub-title">Elije una mascota</h2>
 
+            <div class="tarjetas">
+                <label class="btn-mascota" for="hipodoge">
+                    <p>Hipodoge</p>
+                    <img src="assets/mokepons_mokepon_hipodoge_attack.png" alt="Imagen Hipodoge">
+                </label>
+                <!-- <input type="radio" name="mascotas" id="hipodoge"> -->
+                
+                <label class="btn-mascota" for="capipepo">
+                    <p>Capipepo</p>
+                    <img src="assets/mokepons_mokepon_capipepo_attack.png" alt="Imagen Capipepo">
+                </label>
+                <!-- <input type="radio" name="mascotas" id="capipepo"> -->
+                
+                <label class="btn-mascota" for="ratiguella">
+                    <p>Ratiguella</p>
+                    <img src="assets/mokepons_mokepon_ratigueya_attack.png" alt="Imagen Ratiguella">
+                </label>
+                <!-- <input type="radio" name="mascotas" id="ratiguella"> -->
+            </div>
+            
             <button id="btn-mascota">seleccionar</button>
             
 
@@ -38,6 +43,8 @@
         
 
         <section id="select-ataque">
+            <h1 class="title">Mokepon! 🔥💧🌱</h1>
+
             <h2>Elije un ataque</h2>
             
             <p>Tu mascota <span id="mascota-jug"></span> tiene <span id="vida-jug">3</span> vidas</p>

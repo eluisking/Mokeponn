@@ -1,6 +1,50 @@
-.title{
-    color:lightcoral;
-    width: 310px;
-    height: 50px;
-    background-color: lightsteelblue;
+body{
+    background-color: #E9DAC1;
+    font-family: 'Silkscreen', cursive;
 }
+
+#select-mascota{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.title{
+    color: #18978F;
+    font-size: 45px;
+}
+
+.sub-title{
+    color: black;
+    font-size: 25px;
+}
+
+
+.tarjetas{
+    display: flex;
+    gap: 10px;
+}
+
+.btn-mascota{
+    width: 190px;
+    height: 100px;
+    background-color:#54BAB9;
+    padding: 10px;
+    /* Aqui se ajusta todos los tamanos para hacer los 100% de fnal */
+    box-sizing: border-box;
+    margin: 10px;
+    border: 1px solid teal;
+    border-radius: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-mascota img{
+    width: 80px;
+}
+
+
+/* font-family: 'Silkscreen', cursive; */
