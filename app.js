@@ -1,3 +1,28 @@
+const seleccionAtaque = document.getElementById('select-ataque');
+const seleccionReset = document.getElementById('sec-reset');
+const btnMascotaJugador = document.getElementById('btn-mascota');
+const btnFuego = document.getElementById('btn-fuego');
+const btnAgua = document.getElementById('btn-agua');
+const btnTierra = document.getElementById('btn-tierra');
+const btnReset = document.getElementById('btn-reset');
+const ataqueEnemigo = document.getElementById('ataque-enemigo');
+const seleccionMascota = document.getElementById('select-mascota');
+
+//Variables de los checkbox
+const inputHipodoge = document.getElementById('hipodoge');
+const inputCapipepo = document.getElementById('capipepo');
+const inputRatihuella = document.getElementById('ratiguella');
+const mascotaJug = document.getElementById('mascota-jug');
+const mascotaEnemi = document.getElementById('mascota-enemi');
+
+const resultado = document.getElementById('resultado');
+const ataqueJugador = document.getElementById('ataque-jugador');
+
+//Para mostrar vidas
+const vidasJugador = document.getElementById('vida-jug');
+const vidasEnemigo = document.getElementById('vida-enemi');
+
+
 
 let ataqueJug;
 let ataqueEnemi;
@@ -7,26 +32,15 @@ let vidasEnemi = 3;
 //Funcion cuando carge la pagina
 function inicarJuego(){
     //Ocultamos contenido
-    let seleccionAtaque = document.getElementById('select-ataque');
     seleccionAtaque.style.display = 'none';
-    let seleccionReset = document.getElementById('sec-reset');
     seleccionReset.style.display = 'none';
-
-    let btnMascotaJugador = document.getElementById('btn-mascota');
-
     //Boton seleccionar mascota
     btnMascotaJugador.addEventListener('click', seleccionarMascotaJugador);
-
     //Botones de ataque
-    let btnFuego = document.getElementById('btn-fuego');
     btnFuego.addEventListener('click', ataqueFuego);
-    let btnAgua = document.getElementById('btn-agua');
     btnAgua.addEventListener('click', ataqueAgua);
-    let btnTierra = document.getElementById('btn-tierra');
     btnTierra.addEventListener('click', ataqueTierra);
-
-    //btn-reset
-    let btnReset = document.getElementById('btn-reset');
+    //btn-reset;
     btnReset.addEventListener('click', reset);
 
 }
@@ -34,20 +48,6 @@ function inicarJuego(){
 
 //Logica seleccionar mascota
 function seleccionarMascotaJugador(){
-    //Descultamos contenido
-    let seleccionAtaque = document.getElementById('select-ataque');
-
-    let seleccionMascota = document.getElementById('select-mascota');
-
-    let seleccionReset = document.getElementById('sec-reset');
-
-
-    //Variables de los checkbox
-    let inputHipodoge = document.getElementById('hipodoge');
-    let inputCapipepo = document.getElementById('capipepo');
-    let inputRatihuella = document.getElementById('ratiguella');
-    let mascotaJug = document.getElementById('mascota-jug');
-
     //Validamos cual opcion esta seleccionada
     if(inputHipodoge.checked){
         mascotaJug.innerHTML = "Hipodoge";
@@ -78,7 +78,6 @@ function seleccionarMascotaJugador(){
 
 //Esta funcion genera la mascota aleaoria del enemigo
 function seleccionarMascotaEnemigo(){
-    let mascotaEnemi = document.getElementById('mascota-enemi');
     //Llama la funcion aleatorio y la guarda en una variable
     let nAleaortio = aleatorio(1,3);
 
@@ -140,10 +139,6 @@ function fataqueEnemi(){
 
 //Funcion crear mensaje de ataque
 function crearMensaje(){
-    let resultado = document.getElementById('resultado');
-    let ataqueEnemigo = document.getElementById('ataque-enemigo');
-    let ataqueJugador = document.getElementById('ataque-jugador');
-
     let nuevoAtaqueJ= document.createElement('p');
     let nuevoAtaqueE= document.createElement('p');
     //let notificacion= document.createElement('p');
@@ -165,11 +160,6 @@ function crearMensaje(){
 }
 
 function batalla(){
-
-    //Para mostrar vidas
-    let vidasJugador = document.getElementById('vida-jug');
-    let vidasEnemigo = document.getElementById('vida-enemi');
-
     var imprimir;
 
     if(ataqueJug == ataqueEnemi){
@@ -199,8 +189,6 @@ function batalla(){
 }
 
 function validarVidas(){
-    let seleccionReset = document.getElementById('sec-reset');
-
     if(vidasEnemi == 0){
         alert("Ganaste la batalla");
         btnDesabled();
@@ -216,11 +204,8 @@ function validarVidas(){
 
 function btnDesabled(){
      //Desabilitanos los botones
-     let btnFuego = document.getElementById('btn-fuego');
      btnFuego.disabled = true;
-     let btnAgua = document.getElementById('btn-agua');
      btnAgua.disabled = true;
-     let btnTierra = document.getElementById('btn-tierra');
      btnTierra.disabled = true;
 }
 
