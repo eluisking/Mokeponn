@@ -8,7 +8,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
-        <title>Juego Luis</title>
+        <title>Mokepon</title>
     </head>
     <body>
         <section id="select-mascota">
@@ -17,54 +17,69 @@
             <h2 class="sub-title">Elije una mascota</h2>
 
             <div class="tarjetas">
+                <input type="radio" name="mascotas" id="hipodoge" style="display: none;">
                 <label class="btn-mascota" for="hipodoge">
                     <p>Hipodoge</p>
                     <img src="assets/mokepons_mokepon_hipodoge_attack.png" alt="Imagen Hipodoge">
                 </label>
-                <!-- <input type="radio" name="mascotas" id="hipodoge"> -->
                 
+                <input type="radio" name="mascotas" id="capipepo" style="display: none;">
                 <label class="btn-mascota" for="capipepo">
                     <p>Capipepo</p>
                     <img src="assets/mokepons_mokepon_capipepo_attack.png" alt="Imagen Capipepo">
                 </label>
-                <!-- <input type="radio" name="mascotas" id="capipepo"> -->
                 
+                <input type="radio" name="mascotas" id="ratiguella" style="display: none;">
                 <label class="btn-mascota" for="ratiguella">
                     <p>Ratiguella</p>
                     <img src="assets/mokepons_mokepon_ratigueya_attack.png" alt="Imagen Ratiguella">
                 </label>
-                <!-- <input type="radio" name="mascotas" id="ratiguella"> -->
             </div>
             
-            <button id="btn-mascota">seleccionar</button>
+            <button class="btns" id="btn-mascota">seleccionar</button>
             
 
         </section>
         
 
         <section id="select-ataque">
-            <h1 class="title">Mokepon! 🔥💧🌱</h1>
+            <h1 class="title">¡Mokepon!</h1>
 
-            <h2>Elije un ataque</h2>
+            <h2 class="sub-title">Elije un ataque</h2>
+
+            <div class="tarjeta-ataques">
+                <button class="btns" id="btn-fuego">Fuego🔥</button>
+                <button class="btns" id="btn-agua">Agua💧</button>
+                <button class="btns" id="btn-tierra">Tierra🌱</button>
+            </div>
             
-            <p>Tu mascota <span id="mascota-jug"></span> tiene <span id="vida-jug">3</span> vidas</p>
-            <p>La mascota <span id="mascota-enemi"></span> del enemigo tiene <span id="vida-enemi">3</span> vidas</p>
 
-            <p>
-                <button id="btn-fuego">Fuego🔥</button>
-                <button id="btn-agua">Agua💧</button>
-                <button id="btn-tierra">Tierra🌱</button>
-            </p>
-        </section>
+            <div>
+                <section id="mensajes">
+                    <p id="resultado">Vamos a Jugar</p>
+                </section>
 
-        <section id="mensajes">
-            <!-- <p>Tu mascota ataco con Fuego</p> -->
-        </section>
+                <section id="sec-reset">
+                    <button class="btns" id="btn-reset">Reiniciar🔄</button>
+                </section>
+            </div>
 
-        <section id="sec-reset">
-            <button id="btn-reset">Reiniciar Jugeos🔄</button>
+            <div class="ataques">
+                <div class="ataques-jugadorrr">
+                    <p id="vida-jug">3</p>
+                    <p id="mascota-jug"></p>
+                    <div id="ataque-jugador"></div>
+                </div>
+                <div class="ataques-enemigooo">
+                    <p id="vida-enemi">3</p>
+                    <p id="mascota-enemi"></p>
+                    <div id="ataque-enemigo"></div>
+                </div>
+
+            </div>
+            
+            
         </section>
-    
 
         <script src="app.js"></script>
     </body>

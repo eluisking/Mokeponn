@@ -51,24 +51,24 @@ function seleccionarMascotaJugador(){
     //Validamos cual opcion esta seleccionada
     if(inputHipodoge.checked){
         mascotaJug.innerHTML = "Hipodoge";
-        seleccionAtaque.style.display = 'block';
+        seleccionAtaque.style.display = 'flex';
         seleccionMascota.style.display = 'none';
         //alert("Has seleccionado Hipodoge!");
     }else if(inputCapipepo.checked){
         mascotaJug.innerHTML = "Capipepo";
-        seleccionAtaque.style.display = 'block';
+        seleccionAtaque.style.display = 'flex';
         seleccionMascota.style.display = 'none';
         //alert("Has seleccionado Capipepo!");
     }else if(inputRatihuella.checked){
         mascotaJug.innerHTML = "Ratiguella";
-        seleccionAtaque.style.display = 'block';
+        seleccionAtaque.style.display = 'flex';
         seleccionMascota.style.display = 'none';
         //alert("Has seleccionado Ratiguella!");
     }else{
         alert("Selecciona una mascota!");
         seleccionReset.style.display = 'none';
         seleccionAtaque.style.display = 'none';
-        seleccionMascota.style.display = 'block';
+        seleccionMascota.style.display = 'flex';
     }
 
     //LLama la funcion de seleccion del enemigo 
@@ -140,13 +140,26 @@ function fataqueEnemi(){
 
 //Funcion crear mensaje de ataque
 function crearMensaje(){
-    let seccionM = document.getElementById('mensajes');
+    let resultado = document.getElementById('resultado');
+    let ataqueEnemigo = document.getElementById('ataque-enemigo');
+    let ataqueJugador = document.getElementById('ataque-jugador');
 
-    let parrafo = document.createElement('p');
-    parrafo.innerHTML = 'Tu mascota ataco con ' + ataqueJug + ' y el la mascota del enemigo ataco con ' + ataqueEnemi + " " + batalla();
+    let nuevoAtaqueJ= document.createElement('p');
+    let nuevoAtaqueE= document.createElement('p');
+    //let notificacion= document.createElement('p');
+    
+    nuevoAtaqueJ.innerHTML = ataqueJug;
+    nuevoAtaqueE.innerHTML = ataqueEnemi;
+    resultado.innerHTML = batalla();
+
+
+    //let parrafo = document.createElement('p');
+    //parrafo.innerHTML = 'Tu mascota ataco con ' + ataqueJug + ' y el la mascota del enemigo ataco con ' + ataqueEnemi + " " + batalla();
 
     //Aqui estamos agregando el parrafo nuevo al elemento de HTML
-    seccionM.appendChild(parrafo);
+    ataqueJugador.appendChild(nuevoAtaqueJ);
+    ataqueEnemigo.appendChild(nuevoAtaqueE);
+    //resultado.appendChild(notificacion);
 
 
 }
