@@ -23,26 +23,60 @@ const vidasJugador = document.getElementById('vida-jug');
 const vidasEnemigo = document.getElementById('vida-enemi');
 
 
-
+let mokepones = [];
 let ataqueJug;
 let ataqueEnemi;
 let vidasJug = 3;
 let vidasEnemi = 3;
 
-
+//
 class Mokepon{
     constructor(nombre, foto, vida){
         this.nombre = nombre;
         this.foto = foto;
         this.vida = vida;
+        this.ataque = [];
     }
 }
 
+//Intanciamos la clase
 let hipodoge = new Mokepon('Hipodoge', 'assets/mokepons_mokepon_hipodoge_attack.png', 3);
 let capipepo = new Mokepon('Capipepo', 'assets/mokepons_mokepon_capipepo_attack.png', 3);
 let ratihuella = new Mokepon('Ratihuella', 'assets/mokepons_mokepon_ratigueya_attack.png', 3);
 
+//Ataques para hipodoge
+hipodoge.ataque.push(
+    {nombre: 'Agua', id: 'btn-agua'},
+    {nombre: 'Agua', id: 'btn-agua'},
+    {nombre: 'Agua', id: 'btn-agua'},
+    {nombre: 'Fuego', id: 'btn-fuego'},
+    {nombre: 'Tierra', id: 'btn-tierra'},
+);
 
+//Ataque de capipepo
+capipepo.ataque.push(
+    {nombre: 'Tierra', id: 'btn-tierra'},
+    {nombre: 'Tierra', id: 'btn-tierra'},
+    {nombre: 'Tierra', id: 'btn-tierra'},
+    {nombre: 'Agua', id: 'btn-agua'},
+    {nombre: 'Fuego', id: 'btn-fuego'},
+);
+
+//Ataque de ratihuella
+ratihuella.ataque.push(
+    {nombre: 'Fuego', id: 'btn-fuego'},
+    {nombre: 'Fuego', id: 'btn-fuego'},
+    {nombre: 'Fuego', id: 'btn-fuego'},
+    {nombre: 'Agua', id: 'btn-agua'},
+    {nombre: 'Tierra', id: 'btn-tierra'},
+);
+
+console.log(hipodoge.ataque);
+
+//Isertamos nuestras instancias a el arreglo
+mokepones.push(hipodoge, capipepo, ratihuella);
+
+//console.log(mokepones);
 
 //Funcion cuando carge la pagina
 function inicarJuego(){
