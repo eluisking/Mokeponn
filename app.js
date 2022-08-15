@@ -29,6 +29,21 @@ let ataqueEnemi;
 let vidasJug = 3;
 let vidasEnemi = 3;
 
+
+class Mokepon{
+    constructor(nombre, foto, vida){
+        this.nombre = nombre;
+        this.foto = foto;
+        this.vida = vida;
+    }
+}
+
+let hipodoge = new Mokepon('Hipodoge', 'assets/mokepons_mokepon_hipodoge_attack.png', 3);
+let capipepo = new Mokepon('Capipepo', 'assets/mokepons_mokepon_capipepo_attack.png', 3);
+let ratihuella = new Mokepon('Ratihuella', 'assets/mokepons_mokepon_ratigueya_attack.png', 3);
+
+
+
 //Funcion cuando carge la pagina
 function inicarJuego(){
     //Ocultamos contenido
