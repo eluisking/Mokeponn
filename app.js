@@ -7,11 +7,8 @@ const btnTierra = document.getElementById('btn-tierra');
 const btnReset = document.getElementById('btn-reset');
 const ataqueEnemigo = document.getElementById('ataque-enemigo');
 const seleccionMascota = document.getElementById('select-mascota');
+const contenedorTarjetas = document.getElementById('contenedor-tarjetas');
 
-//Variables de los checkbox
-const inputHipodoge = document.getElementById('hipodoge');
-const inputCapipepo = document.getElementById('capipepo');
-const inputRatihuella = document.getElementById('ratiguella');
 const mascotaJug = document.getElementById('mascota-jug');
 const mascotaEnemi = document.getElementById('mascota-enemi');
 
@@ -26,6 +23,10 @@ const vidasEnemigo = document.getElementById('vida-enemi');
 let mokepones = [];
 let ataqueJug;
 let ataqueEnemi;
+let opciondemokepon;
+let inputHipodoge;
+let inputCapipepo;
+let inputRatihuella;
 let vidasJug = 3;
 let vidasEnemi = 3;
 
@@ -71,7 +72,7 @@ ratihuella.ataque.push(
     {nombre: 'Tierra', id: 'btn-tierra'},
 );
 
-console.log(hipodoge.ataque);
+//console.log(hipodoge.ataque);
 
 //Isertamos nuestras instancias a el arreglo
 mokepones.push(hipodoge, capipepo, ratihuella);
@@ -83,6 +84,27 @@ function inicarJuego(){
     //Ocultamos contenido
     seleccionAtaque.style.display = 'none';
     seleccionReset.style.display = 'none';
+
+    //Gneramos las tarjetas de las mascotas
+    mokepones.forEach((mokepon) => {
+        opciondemokepon = `
+        <input type="radio" name="mascotas" id=${mokepon.nombre} style="display: none;">
+            <label class="btn-mascota" for=${mokepon.nombre}>
+            <p>${mokepon.nombre}</p>
+            <img src=${mokepon.foto} alt=${mokepon.nombre}>
+        </label>
+        `;
+
+        contenedorTarjetas.innerHTML += opciondemokepon;
+
+        inputHipodoge = document.getElementById('Hipodoge');
+        inputCapipepo = document.getElementById('Capipepo');
+        inputRatihuella = document.getElementById('Ratiguella');
+
+    });
+
+
+
     //Boton seleccionar mascota
     btnMascotaJugador.addEventListener('click', seleccionarMascotaJugador);
     //Botones de ataque
