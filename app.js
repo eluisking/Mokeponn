@@ -17,6 +17,9 @@ const ataqueJugador = document.getElementById('ataque-jugador');
 const vidasJugador = document.getElementById('vida-jug');
 const vidasEnemigo = document.getElementById('vida-enemi');
 
+const verMapa = document.getElementById('ver-mapa');
+const mapa = document.getElementById('mapa');
+
 let btnFuego;
 let btnAgua;
 let btnTierra;
@@ -32,6 +35,9 @@ let inputRatihuella;
 let mascotaEleccion;
 let vidasJug = 3;
 let vidasEnemi = 3;
+
+//Para canvas
+// let lienzo = mapa.getContext("2d");
 
 //
 class Mokepon{
@@ -81,6 +87,7 @@ function inicarJuego(){
     //Ocultamos contenido
     seleccionAtaque.style.display = 'none';
     seleccionReset.style.display = 'none';
+    verMapa.style.display = 'none';
 
     //Gneramos las tarjetas de las mascotas
     mokepones.forEach((mokepon) => {
@@ -113,20 +120,34 @@ function inicarJuego(){
 //Logica seleccionar mascota
 function seleccionarMascotaJugador(){
     //Validamos cual opcion esta seleccionada
+    
+
     if(inputHipodoge.checked){
         mascotaJug.innerHTML = inputHipodoge.id;
+        // verMapa.style.display = 'flex';
+        // let imgHipodoge = new Image();
+        // imgHipodoge = hipodoge.foto;
+        // lienzo.drawImage(imgHipodoge, 20,40,100,100);
         seleccionAtaque.style.display = 'flex';
         seleccionMascota.style.display = 'none';
         mascotaEleccion = inputHipodoge.id;
         //alert("Has seleccionado Hipodoge!");
     }else if(inputCapipepo.checked){
         mascotaJug.innerHTML = inputCapipepo.id;
+        // verMapa.style.display = 'flex';
+        // let imgCapipepo = new Image();
+        // imgCapipepo = capipepo.foto;
+        // lienzo.drawImage(imgCapipepo, 20,40,100,100);
         seleccionAtaque.style.display = 'flex';
         seleccionMascota.style.display = 'none';
         mascotaEleccion = inputCapipepo.id;
         //alert("Has seleccionado Capipepo!");
     }else if(inputRatihuella.checked){
         mascotaJug.innerHTML = inputRatihuella.id;
+        // verMapa.style.display = 'flex';
+        // let imgRatihuella = new Image();
+        // imgRatihuella = ratihuella.foto;
+        // lienzo.drawImage(imgRatihuella, 20,40,100,100);
         seleccionAtaque.style.display = 'flex';
         seleccionMascota.style.display = 'none';
         mascotaEleccion = inputRatihuella.id;

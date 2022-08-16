@@ -25,6 +25,16 @@ body{
 .tarjetas, .tarjeta-ataques{
     display: flex;
     gap: 10px;
+    justify-content: center;
+}
+
+#mapa{
+    border: 2px solid black;
+}
+
+#ver-mapa{
+    flex-direction: column;
+    align-items: center;
 }
 
 .btn-mascota{
