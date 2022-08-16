@@ -1,13 +1,11 @@
 const seleccionAtaque = document.getElementById('select-ataque');
 const seleccionReset = document.getElementById('sec-reset');
 const btnMascotaJugador = document.getElementById('btn-mascota');
-const btnFuego = document.getElementById('btn-fuego');
-const btnAgua = document.getElementById('btn-agua');
-const btnTierra = document.getElementById('btn-tierra');
 const btnReset = document.getElementById('btn-reset');
 const ataqueEnemigo = document.getElementById('ataque-enemigo');
 const seleccionMascota = document.getElementById('select-mascota');
 const contenedorTarjetas = document.getElementById('contenedor-tarjetas');
+const contenedorAtaques = document.getElementById('tarjetas-ataques');
 
 const mascotaJug = document.getElementById('mascota-jug');
 const mascotaEnemi = document.getElementById('mascota-enemi');
@@ -19,14 +17,18 @@ const ataqueJugador = document.getElementById('ataque-jugador');
 const vidasJugador = document.getElementById('vida-jug');
 const vidasEnemigo = document.getElementById('vida-enemi');
 
-
+let btnFuego;
+let btnAgua;
+let btnTierra;
 let mokepones = [];
 let ataqueJug;
 let ataqueEnemi;
 let opciondemokepon;
+let opcionAtaques;
 let inputHipodoge;
 let inputCapipepo;
 let inputRatihuella;
+let mascotaEleccion;
 let vidasJug = 3;
 let vidasEnemi = 3;
 
@@ -48,8 +50,6 @@ let ratihuella = new Mokepon('Ratihuella', 'assets/mokepons_mokepon_ratigueya_at
 //Ataques para hipodoge
 hipodoge.ataque.push(
     {nombre: 'Agua', id: 'btn-agua'},
-    {nombre: 'Agua', id: 'btn-agua'},
-    {nombre: 'Agua', id: 'btn-agua'},
     {nombre: 'Fuego', id: 'btn-fuego'},
     {nombre: 'Tierra', id: 'btn-tierra'},
 );
@@ -57,16 +57,12 @@ hipodoge.ataque.push(
 //Ataque de capipepo
 capipepo.ataque.push(
     {nombre: 'Tierra', id: 'btn-tierra'},
-    {nombre: 'Tierra', id: 'btn-tierra'},
-    {nombre: 'Tierra', id: 'btn-tierra'},
     {nombre: 'Agua', id: 'btn-agua'},
     {nombre: 'Fuego', id: 'btn-fuego'},
 );
 
 //Ataque de ratihuella
 ratihuella.ataque.push(
-    {nombre: 'Fuego', id: 'btn-fuego'},
-    {nombre: 'Fuego', id: 'btn-fuego'},
     {nombre: 'Fuego', id: 'btn-fuego'},
     {nombre: 'Agua', id: 'btn-agua'},
     {nombre: 'Tierra', id: 'btn-tierra'},
@@ -99,7 +95,7 @@ function inicarJuego(){
 
         inputHipodoge = document.getElementById('Hipodoge');
         inputCapipepo = document.getElementById('Capipepo');
-        inputRatihuella = document.getElementById('Ratiguella');
+        inputRatihuella = document.getElementById('Ratihuella');
 
     });
 
@@ -107,10 +103,6 @@ function inicarJuego(){
 
     //Boton seleccionar mascota
     btnMascotaJugador.addEventListener('click', seleccionarMascotaJugador);
-    //Botones de ataque
-    btnFuego.addEventListener('click', ataqueFuego);
-    btnAgua.addEventListener('click', ataqueAgua);
-    btnTierra.addEventListener('click', ataqueTierra);
     //btn-reset;
     btnReset.addEventListener('click', reset);
 
@@ -121,47 +113,72 @@ function inicarJuego(){
 function seleccionarMascotaJugador(){
     //Validamos cual opcion esta seleccionada
     if(inputHipodoge.checked){
-        mascotaJug.innerHTML = "Hipodoge";
+        mascotaJug.innerHTML = inputHipodoge.id;
         seleccionAtaque.style.display = 'flex';
         seleccionMascota.style.display = 'none';
+        mascotaEleccion = inputHipodoge.id;
         //alert("Has seleccionado Hipodoge!");
     }else if(inputCapipepo.checked){
-        mascotaJug.innerHTML = "Capipepo";
+        mascotaJug.innerHTML = inputCapipepo.id;
         seleccionAtaque.style.display = 'flex';
         seleccionMascota.style.display = 'none';
+        mascotaEleccion = inputCapipepo.id;
         //alert("Has seleccionado Capipepo!");
     }else if(inputRatihuella.checked){
-        mascotaJug.innerHTML = "Ratiguella";
+        mascotaJug.innerHTML = inputRatihuella.id;
         seleccionAtaque.style.display = 'flex';
         seleccionMascota.style.display = 'none';
+        mascotaEleccion = inputRatihuella.id;
         //alert("Has seleccionado Ratiguella!");
-    }else{
-        alert("Selecciona una mascota!");
-        seleccionReset.style.display = 'none';
-        seleccionAtaque.style.display = 'none';
-        seleccionMascota.style.display = 'flex';
-    }
-
+    };
+    
+    extraerAtaques(mascotaEleccion);
     //LLama la funcion de seleccion del enemigo 
     seleccionarMascotaEnemigo();
 
 }
 
+//Generando ataque para HTML
+function extraerAtaques(extraerAtaques){
+    let ataques;
+    for(let i=0;i<mokepones.length;i++){
+        if(mascotaEleccion == mokepones[i].nombre){
+            ataques = mokepones[i].ataque;
+        }
+    }
+    
+    //console.log(ataques);
+
+    mostrarAtaques(ataques);
+}
+
+function mostrarAtaques(ataques){
+    
+    ataques.forEach((ataque) => {
+        opcionAtaques = `<button class="btns" id="btn-${ataque.nombre}">${ataque.nombre}</button>`;
+        //console.log(ataque.nombre);
+
+        contenedorAtaques.innerHTML += opcionAtaques;
+    });
+
+    btnFuego = document.getElementById('btn-Fuego');
+    btnAgua = document.getElementById('btn-Agua');
+    btnTierra = document.getElementById('btn-Tierra');
+
+    //Botones de ataque
+    btnFuego.addEventListener('click', ataqueFuego);
+    btnAgua.addEventListener('click', ataqueAgua);
+    btnTierra.addEventListener('click', ataqueTierra);
+
+}
+
+
 //Esta funcion genera la mascota aleaoria del enemigo
 function seleccionarMascotaEnemigo(){
     //Llama la funcion aleatorio y la guarda en una variable
-    let nAleaortio = aleatorio(1,3);
+    let nAleaortio = aleatorio(0, mokepones.length - 1);
 
-    if(nAleaortio == 1){
-        mascotaEnemi.innerHTML = "Hipodoge";
-        //alert("Has seleccionado Hipodoge!");
-    }else if(nAleaortio == 2){
-        mascotaEnemi.innerHTML = "Capipepo";
-        //alert("Has seleccionado Capipepo!");
-    }else if(nAleaortio == 3){
-        mascotaEnemi.innerHTML = "Ratiguella";
-        //alert("Has seleccionado Ratiguella!");
-    }
+    mascotaEnemi.innerHTML = mokepones[nAleaortio].nombre;
 
     //console.log(nAleaortio);
 
