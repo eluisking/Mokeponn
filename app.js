@@ -21,6 +21,7 @@ let btnFuego;
 let btnAgua;
 let btnTierra;
 let mokepones = [];
+// let botoness = [];
 let ataqueJug;
 let ataqueEnemi;
 let opciondemokepon;
@@ -155,7 +156,7 @@ function extraerAtaques(extraerAtaques){
 function mostrarAtaques(ataques){
     
     ataques.forEach((ataque) => {
-        opcionAtaques = `<button class="btns" id="btn-${ataque.nombre}">${ataque.nombre}</button>`;
+        opcionAtaques = `<button class="btns BAtaque" id="btn-${ataque.nombre}">${ataque.nombre}</button>`;
         //console.log(ataque.nombre);
 
         contenedorAtaques.innerHTML += opcionAtaques;
@@ -164,6 +165,9 @@ function mostrarAtaques(ataques){
     btnFuego = document.getElementById('btn-Fuego');
     btnAgua = document.getElementById('btn-Agua');
     btnTierra = document.getElementById('btn-Tierra');
+    botoness = document.querySelectorAll('.BAtaque');
+
+    //console.log(botoness);
 
     //Botones de ataque
     btnFuego.addEventListener('click', ataqueFuego);
@@ -173,12 +177,23 @@ function mostrarAtaques(ataques){
 }
 
 
+// function secuenciaAtaques(){
+//     botoness.forEach((boton) => {
+//         boton.addEventListener('click',(e) => {
+//             if(e.target.textContent === '🔥'){
+
+//             }
+//         })
+//     })
+// }
+
 //Esta funcion genera la mascota aleaoria del enemigo
 function seleccionarMascotaEnemigo(){
     //Llama la funcion aleatorio y la guarda en una variable
     let nAleaortio = aleatorio(0, mokepones.length - 1);
 
     mascotaEnemi.innerHTML = mokepones[nAleaortio].nombre;
+    // secuenciaAtaques();
 
     //console.log(nAleaortio);
 
